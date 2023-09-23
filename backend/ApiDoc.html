@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API DOC</title>
+    <style>
+      * {
+        text-transform: capitalize;
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>this is api doc for reference api and other stuff</h1>
+    <p>
+      this Doc will tell you how and what function are made for and ther use and
+      also which api is used for
+    </p>
+    <h2>the folder structure</h2>
+    <p>
+      the folder structure is simple and follow mvc architecture(model view
+      controller)
+    </p>
+    <ul>
+      <li><h2>config</h2></li>
+      <p>
+        this file contain detail and function for connection to mongodb by
+        mongoose(odm)
+      </p>
+      <li><h2>controller</h2></li>
+      <p>
+        this file contain detail and function to controll flow and bussiness
+        logic and this file is responsible for direct connection with
+        database(CRUD operation)
+      </p>
+      <li><h2>helper</h2></li>
+      <p>
+        this file has some helping function such as joi a validation third party
+        module to check req.body data <br />
+        this is used as a middleware if this function run successfully then next
+        controller will call if any error occur <br />
+        then it will return from here
+      </p>
+      <li><h2>model</h2></li>
+      <p>this file contain structure part of database (schema (blueprint))</p>
+      <li><h2>node_modules</h2></li>
+      <p>this is modules folder all modules file will be in it</p>
+      <li><h2>routes</h2></li>
+      <p>
+        this is routes file all api's routes will be in this and on which routes
+        which validation, function and controller should call
+      </p>
+      <li><h2>.env</h2></li>
+      <p>
+        environment file containe all secret key or variable and value
+        <br />*note this file will not be in any github repo
+        <br />
+        you have to manually create it in root folder like (.env) and it it
+        <br />
+        store this data <br />
+        MONGO_URL=your api without any quote or space in it <br />
+        PORT=port of your app (on which port your app is running)
+      </p>
+      <li><h2>.gitignore</h2></li>
+      <p>
+        this file will tell git to ignore those files which are listed in it
+      </p>
+      <li><h2>apidoc.html</h2></li>
+      <p>this file is a doc for api reference and detail for all app working</p>
+      <li><h2>app.js</h2></li>
+      <p>this is main file the root or starting point of app</p>
+      <li><h2>package-lock.json && package.json</h2></li>
+      <p>
+        this file contain all package list and dependency and other meta data
+        detail about app
+      </p>
+    </ul>
+    <h2>first => the Auth section</h2>
+    <h3>the Auth Section with</h3>
+    <ol>
+      <li><h2>REgistartion section</h2></li>
+      <p>
+        in registration <br />
+        we have <br />
+        -app.js(starting point ) <br />
+        -route <br />
+        -validation <br />
+        -controller <br />
+        -check password correct or not <br />
+        -if user exists or not <br />
+        -hashed password <br />
+        -store user data in database <br />
+      </p>
+      <h3></h3>
+      <li>login</li>
+    </ol>
+  </body>
+</html>
