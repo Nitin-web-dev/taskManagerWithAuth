@@ -1,6 +1,6 @@
 const AuthModel = require("../model/AuthSchema.js"); // our schema file 
 const bcrypt = require("bcrypt"); // a third party module to hashed the password and check also (hash,compare)
-
+const jwt = require('jsonwebtoken') // jwt token module
 // function for signup controller this function is our logic on registration api call
 // we use async await bcoz some of our logic need some time or make promise
 const signUP = async (req, res) => {
@@ -26,15 +26,16 @@ const signUP = async (req, res) => {
 
     // if user not exits then continue
     if (!userAlreadyExists) {
-      // hashed the password to encryption
-      const hashedPassword = await bcrypt.hash(password, 10);
+ 
 
       // then store data in database and send response with message: new user created;
-      const newUserCreate = await AuthModel.create({
+      const newUserCreate =  new AuthModel({
         username,
         email,
-        password:hashedPassword,
+        password
       });
+      await newUserCreate.save();
+
 
       if (newUserCreate) {
         res.status(201).json({
@@ -77,13 +78,20 @@ const login = async (req,res) => {
     let {  email, password } = req.body;
     
     // check if email exist in database or not
-    let emailExistInDb = await AuthModel.findOne({email})
-    if(emailExistInDb){
+    let userDetails = await AuthModel.findOne({email})
+    if(userDetails){
       
+        const isValidPassword = await bcrypt.compare(password, userDetails.password);
+        if(!isValidPassword) return res.status(401).json({error:true,status:false,message:'credential failed'})
+
+        const token = jwt.sign({_id: userDetails._id,username: userDetails.username}, process.env.JWT_SECURE_KEY,{expiresIn:'3d'})
+
+
       res.status(200).json({
         error: false,
         status: true,
-        message: 'user exist'
+        message: 'user exist',
+        data:token
       })
     } else {
       res.status(301).json({

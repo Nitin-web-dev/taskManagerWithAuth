@@ -2,6 +2,7 @@ require('dotenv').config(); // to use env variable in app
 const express = require('express') // express framework
 const app = express() // initalize app express
 const AuthRoutes = require('./routes/AuthRoutes.js')
+const UserRoutes = require('./routes/UserRoutes.js')
 const connectDB = require('./config/connection.js')
 
 // define port for listen app
@@ -16,6 +17,9 @@ app.use(express.urlencoded({extended: true})) // to use url data and body data
 // define routes
 // auth routes
 app.use('/api/v1/auth', AuthRoutes) // Authroutes is our route in routes folder 
+
+// task routes
+app.use('/api/v1/user', UserRoutes) // Userroutes is our route in routes folder
 
 
 

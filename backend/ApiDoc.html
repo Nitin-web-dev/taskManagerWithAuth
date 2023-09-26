@@ -81,6 +81,17 @@
     <ol>
       <li><h2>REgistartion section</h2></li>
       <p>
+        <h4>this is route :  localhost:8080/api/v1/auth/signup</h4>
+        <h5>
+          body {
+            "username":"SamSingh",
+            "email":"Sam@gmail.com",
+            "password":"123",
+            "confirmPassword":"123"
+          }
+        </h5>
+      </p>
+      <p>
         in registration <br />
         we have <br />
         -app.js(starting point ) <br />
@@ -92,8 +103,72 @@
         -hashed password <br />
         -store user data in database <br />
       </p>
-      <h3></h3>
-      <li>login</li>
+      <li><h2>login section</h2></li>
+      <p>
+        <h4>this is route :  localhost:8080/api/v1/auth/login</h4>
+        <h5>
+          body {
+
+            "email":"Sam@gmail.com",
+            "password":"123"
+          
+        }
+        </h5>
+      </p>
+      <p>
+        in login <br />
+        we have <br />
+        -app.js(starting point ) <br />
+        -route <br />
+        -validation <br />
+     
+        -controller <br />
+     
+      </p>
+      
+
+      <li><h2>Get all tasks section</h2></li>
+      <p>
+        <h4>this is route with get method :  localhost:8080/api/v1/user/task</h4>
+        <h5>
+          provide Authorization in header with token you get from login
+          <br>
+        
+        </h5>
+      </p>
+      <p>
+    
+        we have <br />
+        -app.js(starting point ) <br />
+        -route <br />
+        -validation <br />
+        -authController <br>
+     
+        -controller <br />
+     
+      </p>
+
+
+      <li><h2>create new task section</h2></li>
+      <p>
+        <h4>this is route with post method:  localhost:8080/api/v1/user/task</h4>
+        <h5>
+          provide Authorization in header with token you get from login
+          <br>
+        
+        </h5>
+      </p>
+      <p>
+    
+        we have <br />
+        -app.js(starting point ) <br />
+        -route <br />
+        -validation <br />
+        -authController <br>
+     
+        -controller <br />
+     
+      </p>
     </ol>
   </body>
 </html>
