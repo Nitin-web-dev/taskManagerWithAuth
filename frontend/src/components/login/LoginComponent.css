@@ -1,0 +1,36 @@
+.loginBackground {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.loginContentWrapper {
+    width: 300px;
+    height: 300px;
+   
+ 
+}
+.headingh2 {
+    margin: 10px auto;
+}
+
+.loginContentWrapper .inputWrapper > input
+{
+    width: 100%;
+    padding: 10px 10px;
+    margin: 5px auto;
+}
+
+.otherOptionLogin{
+ 
+    display: flex;
+    justify-content: space-between;
+    
+
+}
+.otherOptionLogin > div , .otherOptionLogin > a {
+    display: block;
+}

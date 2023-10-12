@@ -1,10 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import LoginComponent from './components/login/LoginComponent';
 
 function App() {
   return (
     <div className="App">
-      <h1>we are going to change this </h1>
+        <LoginComponent />
     </div>
   );
 }
