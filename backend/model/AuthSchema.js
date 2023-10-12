@@ -1,6 +1,10 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
-
+// task schema 
+const taskSchema = new mongoose.Schema({
+    title: String,
+    description: String,
+  }, { _id: true }); // Explicitly enable the _id field
 // create a schema for database
 const AuthSchema  = new mongoose.Schema({
     username: {
@@ -16,10 +20,10 @@ const AuthSchema  = new mongoose.Schema({
         type:String,
         required:true
     },
-    tasks : {
-        type: Array,
-        default: []
-    }
+    tasks: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Task',
+      }] ,
 },{timestamps: true})
 
 // hash the password before saving in database
